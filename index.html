@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ÉLAN | Luxury Wedding & Events</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #d6b779;
+  --cream: #f7f1e8;
+  --dark: #11100f;
+  --muted: #aaa39a;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--dark);
+  color:white;
+  font-family:'Montserrat',sans-serif;
+  overflow-x:hidden;
+}
+
+a { text-decoration:none; color:inherit; }
+
+nav {
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:22px 8%;
+  background:rgba(15,14,13,.78);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(214,183,121,.15);
+}
+
+.logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;
+  letter-spacing:7px;
+  color:var(--gold);
+}
+
+.nav-links {
+  display:flex;
+  gap:32px;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.nav-links a { transition:.3s; }
+.nav-links a:hover { color:var(--gold); }
+
+.nav-btn {
+  border:1px solid var(--gold);
+  padding:12px 20px;
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.nav-btn:hover {
+  background:var(--gold);
+  color:#111;
+}
+
+.hero {
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.25)),
+    url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=90&w=2000') center/cover;
+  padding:150px 10% 100px;
+}
+
+.hero-content { max-width:750px; }
+
+.eyebrow {
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  margin-bottom:25px;
+}
+
+.hero h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(65px,10vw,125px);
+  line-height:.88;
+  font-weight:400;
+  margin-bottom:30px;
+}
+
+.hero h1 span { color:var(--gold); font-style:italic; }
+
+.hero p {
+  max-width:480px;
+  line-height:2;
+  color:#ddd;
+  font-size:13px;
+  font-weight:300;
+  margin-bottom:38px;
+}
+
+.primary-btn {
+  display:inline-block;
+  padding:17px 30px;
+  background:var(--gold);
+  color:#17120b;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.primary-btn:hover {
+  background:#fff;
+  transform:translateY(-4px);
+}
+
+.section { padding:110px 9%; }
+
+.section-heading { text-align:center; margin-bottom:65px; }
+
+.section-heading h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:55px;
+  font-weight:400;
+  margin-bottom:15px;
+}
+
+.section-heading h2 span { color:var(--gold); font-style:italic; }
+
+.section-heading p {
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.about {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.about-image {
+  position:relative;
+  transform:perspective(1000px) rotateY(5deg);
+  transition:.5s;
+}
+
+.about-image:hover {
+  transform:perspective(1000px) rotateY(0deg) translateY(-8px);
+}
+
+.about-image img {
+  width:100%;
+  height:550px;
+  object-fit:cover;
+}
+
+.about-text h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:57px;
+  font-weight:400;
+  line-height:1.05;
+  margin-bottom:25px;
+}
+
+.about-text h2 span { color:var(--gold); }
+
+.about-text p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:2.1;
+  margin-bottom:20px;
+}
+
+.gold-line {
+  width:70px;
+  height:2px;
+  background:var(--gold);
+  margin:25px 0;
+}
+
+.services { background:#181614; }
+
+.service-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.service-card {
+  padding:45px 30px;
+  text-align:center;
+  border:1px solid rgba(214,183,121,.2);
+  background:#201d19;
+  transition:.4s;
+  transform-style:preserve-3d;
+}
+
+.service-card:hover {
+  transform:translateY(-12px) rotateX(3deg);
+  border-color:var(--gold);
+  box-shadow:0 25px 50px rgba(0,0,0,.3);
+}
+
+.service-icon {
+  font-size:35px;
+  margin-bottom:25px;
+}
+
+.service-card h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:29px;
+  font-weight:500;
+  margin-bottom:15px;
+}
+
+.service-card p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:2;
+}
+
+.gallery-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-auto-rows:270px;
+  gap:15px;
+}
+
+.gallery-item {
+  overflow:hidden;
+  position:relative;
+}
+
+.gallery-item:first-child {
+  grid-row:span 2;
+}
+
+.gallery-item img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .7s;
+}
+
+.gallery-item:hover img { transform:scale(1.1); }
+
+.gallery-item::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent,rgba(0,0,0,.4));
+  pointer-events:none;
+}
+
+.gallery-label {
+  position:absolute;
+  z-index:2;
+  bottom:20px;
+  left:20px;
+  color:white;
+  letter-spacing:2px;
+  font-size:11px;
+  text-transform:uppercase;
+}
+
+.experience {
+  text-align:center;
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.8)),
+    url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=85&w=1800') center/cover fixed;
+  padding:130px 10%;
+}
+
+.experience h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(45px,7vw,80px);
+  font-weight:400;
+  margin-bottom:20px;
+}
+
+.experience h2 span { color:var(--gold); }
+
+.experience p {
+  color:#ddd;
+  font-size:13px;
+  line-height:2;
+  margin:0 auto 35px;
+  max-width:600px;
+}
+
+.contact {
+  text-align:center;
+  background:#181614;
+}
+
+.contact-details {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:45px;
+  margin:45px 0;
+}
+
+.contact-details div {
+  color:var(--muted);
+  font-size:12px;
+  line-height:2;
+}
+
+.contact-details strong {
+  display:block;
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:8px;
+}
+
+footer {
+  padding:35px 8%;
+  text-align:center;
+  border-top:1px solid rgba(214,183,121,.15);
+  color:#777;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+footer span { color:var(--gold); }
+
+.whatsapp {
+  position:fixed;
+  right:25px;
+  bottom:25px;
+  z-index:99;
+  width:58px;
+  height:58px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#25d366;
+  color:white;
+  border-radius:50%;
+  font-size:25px;
+  box-shadow:0 5px 25px rgba(37,211,102,.3);
+  transition:.3s;
+}
+
+.whatsapp:hover { transform:scale(1.12); }
+
+.reveal {
+  opacity:0;
+  transform:translateY(35px);
+  transition:all .8s ease;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:850px) {
+  nav { padding:18px 5%; }
+  .nav-links { display:none; }
+  .hero { padding:140px 7% 90px; }
+  .about { grid-template-columns:1fr; gap:35px; }
+  .about-image img { height:400px; }
+  .service-grid { grid-template-columns:1fr; }
+  .gallery-grid { grid-template-columns:1fr 1fr; grid-auto-rows:200px; }
+  .gallery-item:first-child { grid-row:span 1; }
+  .section { padding:80px 7%; }
+}
+
+@media(max-width:480px) {
+  .logo { font-size:27px; }
+  .nav-btn { padding:10px 12px; font-size:9px; }
+  .hero h1 { font-size:65px; }
+  .section-heading h2 { font-size:43px; }
+  .about-text h2 { font-size:44px; }
+  .gallery-grid { grid-template-columns:1fr 1fr; grid-auto-rows:160px; gap:9px; }
+  .contact-details { gap:25px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#" class="logo">ÉLAN.</a>
+
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">Our Story</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <a href="#contact" class="nav-btn">Book Your Event</a>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content reveal">
+    <div class="eyebrow">The Art of Celebration</div>
+    <h1>Moments<br>Made <span>Magical.</span></h1>
+    <p>
+      Where timeless elegance meets unforgettable celebrations.
+      Discover a beautiful setting for the moments that matter most.
+    </p>
+    <a href="#contact" class="primary-btn">Discover Our Venue →</a>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="about">
+    <div class="about-image reveal">
+      <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=85&w=1000" alt="Elegant wedding venue">
+    </div>
+
+    <div class="about-text reveal">
+      <div class="eyebrow">Welcome to ÉLAN</div>
+      <h2>Every Celebration Deserves <span>Elegance.</span></h2>
+      <div class="gold-line"></div>
+      <p>
+        Some moments deserve more than an ordinary venue.
+        They deserve an extraordinary experience.
+      </p>
+      <p>
+        From enchanting wedding celebrations to intimate gatherings,
+        every detail comes together to create an atmosphere of
+        sophistication, warmth, and unforgettable memories.
+      </p>
+      <a href="#services" class="primary-btn">Explore Our Services</a>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="section-heading reveal">
+    <div class="eyebrow">What We Offer</div>
+    <h2>Celebrate Every <span>Moment.</span></h2>
+    <p>Beautiful spaces. Exceptional experiences.</p>
+  </div>
+
+  <div class="service-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">✦</div>
+      <h3>Wedding Celebrations</h3>
+      <p>Celebrate your special day in an atmosphere of timeless beauty and elegance.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">❀</div>
+      <h3>Mehndi & Engagement</h3>
+      <p>Bring your traditions to life with beautiful arrangements and unforgettable décor.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">◇</div>
+      <h3>Private Events</h3>
+      <p>Host meaningful gatherings and memorable occasions in a refined setting.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="section-heading reveal">
+    <div class="eyebrow">Our Visual Story</div>
+    <h2>A Glimpse of <span>Elegance.</span></h2>
+    <p>Inspiration for your perfect celebration</p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=85&w=900" alt="Wedding hall">
+      <div class="gallery-label">Grand Celebrations</div>
+    </div>
+
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=85&w=700" alt="Wedding table">
+      <div class="gallery-label">Fine Details</div>
+    </div>
+
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=700" alt="Wedding ceremony">
+      <div class="gallery-label">Timeless Moments</div>
+    </div>
+
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=85&w=700" alt="Wedding decoration">
+      <div class="gallery-label">Beautiful Décor</div>
+    </div>
+
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=85&w=700" alt="Wedding reception">
+      <div class="gallery-label">Unforgettable Nights</div>
+    </div>
+  </div>
+</section>
+
+<section class="experience">
+  <div class="reveal">
+    <div class="eyebrow">Your Story Starts Here</div>
+    <h2>Make It A Day<br><span>To Remember.</span></h2>
+    <p>
+      The perfect venue. The perfect atmosphere.
+      A celebration that stays in your heart forever.
+    </p>
+    <a href="#contact" class="primary-btn">Let's Plan Your Event →</a>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="section-heading reveal">
+    <div class="eyebrow">Get In Touch</div>
+    <h2>Let's Create <span>Memories.</span></h2>
+    <p>Your perfect celebration is just a conversation away.</p>
+  </div>
+
+  <div class="contact-details reveal">
+    <div>
+      <strong>CALL US</strong>
+      +92 300 1234567
+    </div>
+    <div>
+      <strong>EMAIL</strong>
+      hello@elanhall.com
+    </div>
+    <div>
+      <strong>LOCATION</strong>
+      Islamabad, Pakistan
+    </div>
+  </div>
+
+  <a href="https://wa.me/923001234567" target="_blank" class="primary-btn">
+    Enquire on WhatsApp →
+  </a>
+</section>
+
+<footer>
+  © 2026 <span>ÉLAN</span> — THE ART OF CELEBRATION.
+  <br><br>
+  Designed with elegance.
+</footer>
+
+<a class="whatsapp" href="https://wa.me/923001234567" target="_blank" aria-label="WhatsApp">
+  ☎
+</a>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold:0.12 });
+
+document.querySelectorAll('.reveal').forEach(element => {
+  observer.observe(element);
+});
+</script>
+
+</body>
+</html>
